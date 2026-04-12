@@ -1,4 +1,5 @@
-datos <- read.table("tiempos.txt")
+library(here)
+datos <- read.table(here("Backtracking","Utils", "tiempos.txt"))
 
 n <- datos$V1
 sin_poda <- datos$V2
