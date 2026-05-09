@@ -1,19 +1,28 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -O2
 
-OBJ = MainBT.o AlgoritmoBT.o ControladorBT.o
+BUILD = Compilacion
 
-a.out: $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o a.out
+CONTROLADOR_O = $(BUILD)/controladorBT.o
+ALGORITMO_O = $(BUILD)/algoritmoBT.o
+MAIN_O = $(BUILD)/main.o
 
-MainBT.o: main.cpp Algoritmo
-	$(CXX) $(CXXFLAGS) -c main.cpp -o MainBT.o
+OBJ = $(MAIN_O) $(ALGORITMO_O) $(CONTROLADOR_O)
 
-AlgoritmoBT.o: Algoritmo Algoritmo Controlador/Controlador.h
-	$(CXX) $(CXXFLAGS) -c AlgoritmoBT.cpp -o AlgoritmoBT.o
+$(BUILD)/a.out: $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(BUILD)/a.out
 
-ControladorBT.o: Controlador/Controlador.cpp Controlador/Controlador.h
-	$(CXX) $(CXXFLAGS) -c ControladorBT.cpp -o ControladorBT.o
+$(MAIN_O): main.cpp $(ALGORITMO_O)
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $(MAIN_O)
+
+$(ALGORITMO_O): Algoritmo/Backtracking.cpp Algoritmo/Backtracking.h Controlador/Controlador.h
+	$(CXX) $(CXXFLAGS) -c Algoritmo/Backtracking.cpp -o $(ALGORITMO_O)
+
+$(CONTROLADOR_O): Controlador/Controlador.cpp Controlador/Controlador.h
+	$(CXX) $(CXXFLAGS) -c Controlador/Controlador.cpp -o $(CONTROLADOR_O)
+
+run:
+	$(BUILD)/a.out
 
 clean:
-	rm -f *.o a.out
+	rm -f $(BUILD)/*.o $(BUILD)/a.out

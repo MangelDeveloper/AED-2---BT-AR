@@ -1,8 +1,8 @@
 #include "Controlador.h"
 
 //Archivo de entrada versión extendida del problema
-const string Controlador::INPUT_FILE = "../Utils/InputOutput/Entrada_Backtracking.in";
-const string Controlador::TIEMPOS_FILE = "../Utils/tiempos.txt";
+const string Controlador::INPUT_FILE = "./Utils/InputOutput/Entrada_Backtracking.in";
+const string Controlador::TIEMPOS_FILE = "./Utils/tiempos.txt";
 
 vector<Backtracking::Caso> Controlador::leer_entrada() {
     ifstream archivo (INPUT_FILE);
