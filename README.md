@@ -5,7 +5,7 @@
 Este repositorio contiene dos implementaciones de algoritmos fundamentales de optimización y búsqueda:
 
 - **Backtracking**, con versión sin optimizar y versión con poda.
-- **Avance Rápido**, enfocado en generación de datos y análisis experimental de rendimiento.
+- **Avance Rápido**
 
 El objetivo principal del proyecto es **comparar enfoques algorítmicos, medir su rendimiento y estudiar su comportamiento ante distintos tamaños de entrada**.
 
